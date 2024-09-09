@@ -8,5 +8,21 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <dialog>
+        <form method="dialog">
+            <label for="title">Book title:</label>
+            <input type="text" id="title" name="title" minlength="5" required/>
+            <label for="author">Author name:</label>
+            <input type="text" id="author" name="author" required/>
+            <label for="pages">Number of pages:</label>
+            <input type="number" id="pages" name="pages" required/>
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes"></textarea>
+
+            <button type="submit" id="confirm" name="confirm">Confirm</button>
+            <button type="button" id="cancel" name="cancel">Cancel</button>
+        </form>
+    </dialog>
+    <button type="button" id="add" name="add">Add a new book</button>
 </body>
 </html>
