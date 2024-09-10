@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'nobileregular';
-    src: url('nobile-regular-webfont.woff2') format('woff2');
+    src: url('./fonts/nobile-regular-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -59,7 +59,7 @@ p, h1, h2, h3, h4, h5, h6 {
     top: -1%;
     bottom: -1%;
     z-index: -1;
-    background-image: url('/images/background.jpg');
+    background-image: url('./images/background.jpg');
     background-size: cover;
     width: 102%;
     height: 102%;
