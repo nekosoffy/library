@@ -20,13 +20,19 @@ function displayBooks() {
         const card = document.createElement("div");
         card.classList.add("book-card");
 
+        const button = document.createElement("button");
+        button.classList.add("delete-button");
+        button.setAttribute("type", "button");
+        button.textContent = "Remove book";
+
         for (key in book) {
             const p = document.createElement("p");
             const formattedKey = key.at(0).toUpperCase() + key.slice(1);
             p.textContent = `${formattedKey}: ${book[key]}`;
             card.appendChild(p);
         }
-    
+
+        card.appendChild(button);
         booksContainer.appendChild(card);
     });
 }
