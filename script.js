@@ -17,6 +17,10 @@ function displayBooks() {
     booksContainer.replaceChildren();
 
     myLibrary.forEach(book => {
+        const index = myLibrary.indexOf(book);
+        const span = document.createElement("span");
+        span.setAttribute("data-index",`${index}`);
+
         const card = document.createElement("div");
         card.classList.add("book-card");
 
@@ -33,6 +37,7 @@ function displayBooks() {
         }
 
         card.appendChild(button);
+        card.appendChild(span);
         booksContainer.appendChild(card);
     });
 }
