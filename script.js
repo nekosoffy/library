@@ -81,3 +81,40 @@ cancelButton.addEventListener("click", () => {
     dialog.close();
     bookInfo.reset();
 });
+
+
+// Functions for styling purposes
+
+const welcomeWrapper = document.querySelector("#welcome-wrapper");
+const mainWrapper = document.querySelector("#main-wrapper");
+const startButton = document.querySelector("#start-button");
+
+function fadeOut() {
+    let opacity = 1;
+    let interval = setInterval(function () {
+        if (opacity > 0) {
+            opacity -= 0.1;
+            welcomeWrapper.style.opacity = opacity;
+        } else {
+            clearInterval(interval);
+            welcomeWrapper.remove();
+            fadeIn();
+        }
+    }, 100);
+}
+
+function fadeIn() {
+    let opacity = 0;
+    mainWrapper.style.opacity = opacity;
+    newBookButton.style.display = "inline-block";    
+    let interval = setInterval(function () {
+        if (opacity < 1) {
+            opacity += 0.1;
+            mainWrapper.style.opacity = opacity;
+            } else {
+                clearInterval(interval);
+            }
+        }, 200);
+}
+
+startButton.addEventListener("click", fadeOut,{once:true});
