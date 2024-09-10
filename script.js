@@ -48,7 +48,18 @@ function addBookToLibrary(event) {
     displayBooks();
 }
 
+function deleteBook(event) {
+    if (event.target.classList.contains("delete-button")) {
+        const button = event.target;
+        index = button.getAttribute("data-index");
+        myLibrary.splice(index,1);
+        displayBooks();
+    }
+}
+
 bookInfo.addEventListener("submit", addBookToLibrary);
+
+booksContainer.addEventListener("click", deleteBook);
 
 newBookButton.addEventListener("click", () => {
     dialog.showModal(); 
