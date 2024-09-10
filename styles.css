@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'nobileregular';
+    src: url('nobile-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -9,11 +16,20 @@
 
 :root {
     font-size: 62.5%;
+
+    --h1-font-size: calc(1.8rem + 2.5vw);
+    --start-button-font-size: calc(1rem + 1.5vw);
+    --start-button-color: #8b9d83;
+    --start-button-font-color: #0e0e0e;
 }
 
 body {
     -webkit-font-smoothing: antialiased;
-    font-size: 1.6rem;
+    font-size: 1.6rem;    
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
 img, picture, video, canvas, svg {
@@ -47,4 +63,58 @@ p, h1, h2, h3, h4, h5, h6 {
     width: 102%;
     height: 102%;
     filter: blur(5px);
+}
+
+h1 {
+    font-family: "nobileregular", "sans-serif";
+    font-size: var(--h1-font-size);
+    color: white;
+    text-align: center;
+}
+
+#start-button {
+    margin-top: 2vw;
+    font-size: var(--start-button-font-size);
+    min-width: fit-content;
+    background: var(--start-button-color);
+    border: none;
+    opacity: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 2%;
+    font-weight: bold;
+    box-shadow: 5px 5px 10px -2px #0e0e0e;
+    
+    animation: fadeIn 3s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+#start-button:active {
+    background-color: #667260;
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+#start-button:hover {
+    background-color: #667260;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#welcome-wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(14, 14, 14, 0.5);
+    width: 100vw;
+    padding: 3%;
+}
+
+#add {
+    display: none;
 }
