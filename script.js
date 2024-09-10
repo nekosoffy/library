@@ -17,17 +17,17 @@ function displayBooks() {
     booksContainer.replaceChildren();
 
     myLibrary.forEach(book => {
-        const div = document.createElement("div");
-        div.classList.add("book-card");
+        const card = document.createElement("div");
+        card.classList.add("book-card");
 
         for (key in book) {
             const p = document.createElement("p");
-            const formattedKey = key.At(0).toUpperCase() + key.slice(1);
-            p.textContent = `${formattedKey}: ${value}`;
-            div.appendChild(p);
+            const formattedKey = key.at(0).toUpperCase() + key.slice(1);
+            p.textContent = `${formattedKey}: ${book[key]}`;
+            card.appendChild(p);
         }
-
-        booksContainer.appendChild(div);
+    
+        booksContainer.appendChild(card);
     });
 }
 
