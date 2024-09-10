@@ -11,6 +11,16 @@ function Book(title, author, pages, notes) {
     this.author = author;
     this.pages = pages;
     this.notes = notes;
+    this.status = "Not read";
+
+    toggleStatus = function() {
+        if (this.status === "Not read") {
+            this.status = "Read";
+        } else {
+            this.status = "Not read";
+        }
+        displayBooks();
+    };
 }
 
 function displayBooks() {
@@ -18,13 +28,19 @@ function displayBooks() {
 
     myLibrary.forEach((book, index) => {
         const card = document.createElement("div");
-        const button = document.createElement("button");
+        const deleteButton = document.createElement("button");
+        const readButton = document.createElement("button");
         
         card.classList.add("book-card");
-        button.classList.add("delete-button");
-        button.setAttribute("type", "button");
-        button.setAttribute("data-index",`${index}`);
-        button.textContent = "Remove book";
+
+        deleteButton.classList.add("delete-button");
+        deleteButton.setAttribute("type", "button");
+        deleteButton.setAttribute("data-index",`${index}`);
+        deleteButton.textContent = "Remove book";
+
+        readButton.classList.add("read-button");
+        readButton.setAttribute("type", "button");
+        readButton.textContent = "Change read status";
 
         for (key in book) {
             const p = document.createElement("p");
@@ -33,7 +49,8 @@ function displayBooks() {
             card.appendChild(p);
         }
 
-        card.appendChild(button);
+        card.appendChild(deleteButton);
+        card.appendChild(readButton);
         booksContainer.appendChild(card);
     });
 }
@@ -51,9 +68,13 @@ function addBookToLibrary(event) {
 function deleteBook(event) {
     if (event.target.classList.contains("delete-button")) {
         const button = event.target;
-        index = button.getAttribute("data-index");
+        const index = button.getAttribute("data-index");
         myLibrary.splice(index,1);
         displayBooks();
+    } else if (event.target.classList.contains("read-button")) {
+        const button = event.target.previousElementSibling;
+        const index = button.getAttribute("data-index");
+        myLibrary[index].toggleStatus();
     }
 }
 
