@@ -19,15 +19,16 @@
 
     --h1-font-size: calc(1.8rem + 2.5vw);
     --start-button-font-size: calc(1rem + 1.5vw);
-    --start-button-color: #8b9d83;
-    --start-button-font-color: #0e0e0e;
+    --button-color: #ccb69b;
+    --button-font-color: #0e0e0e;
+    --new-book-button-font-size: calc(1rem + 1vw)
 }
 
 body {
     -webkit-font-smoothing: antialiased;
     font-size: 1.6rem;    
     height: 100vh;
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -74,30 +75,34 @@ h1 {
 
 #start-button {
     margin-top: 2vw;
-    font-size: var(--start-button-font-size);
-    min-width: fit-content;
-    background: var(--start-button-color);
-    border: none;
+    font-size: var(--start-button-font-size);    
     opacity: 0;
-    border-radius: 10px;
-    cursor: pointer;
     padding: 2%;
-    font-weight: bold;
-    box-shadow: 5px 5px 10px -2px #0e0e0e;
     
     animation: fadeIn 3s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 }
 
-#start-button:active {
-    background-color: #667260;
+button {
+    border: none;
+    min-width: fit-content;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    background: var(--button-color);
+    color: var(--button-font-color);
+    box-shadow: 5px 5px 10px -2px #0e0e0e;
+}
+
+button:active {
+    background-color: #af9c84;
     transform: scale(0.98);
     box-shadow: none;
 }
 
-#start-button:hover {
-    background-color: #667260;
+button:hover {
+    background-color: #af9c84;
 }
 
 
@@ -115,8 +120,47 @@ h1 {
     padding: 3%;
 }
 
-#add {
+#main-wrapper {
     display: none;
 }
 
+#books-container {
+    position: absolute;
+    top: max(70px,9vw);
+    left: 10vw;
+    width: 80vw;
+    height: 70vh;
+    background-color: #583b34;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: min-content;
+    gap: 10px;
+    justify-content: center;
+    align-content: start;
+    overflow-y: auto;
+}
 
+#add {
+    position: absolute;
+    top: 5vw;
+    left: 10vw;
+    font-size: var(--new-book-button-font-size);
+    min-width: fit-content;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: max(7px,1%);
+    font-weight: bold;
+}
+
+.book-card {
+    height: max(150px,27vh);
+    overflow: auto;
+    background-color: #a8845b;
+    padding: max(7px,1%);
+    border: 3px solid var(--button-font-color);
+    border-left: 20px solid var(--button-font-color);
+    border-radius: 10px 3px 3px 10px;
+}

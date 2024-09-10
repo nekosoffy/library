@@ -106,7 +106,7 @@ function fadeOut() {
 function fadeIn() {
     let opacity = 0;
     mainWrapper.style.opacity = opacity;
-    newBookButton.style.display = "inline-block";    
+    mainWrapper.style.display = "block";
     let interval = setInterval(function () {
         if (opacity < 1) {
             opacity += 0.1;
@@ -114,7 +114,7 @@ function fadeIn() {
             } else {
                 clearInterval(interval);
             }
-        }, 200);
+        }, 100);
 }
 
 startButton.addEventListener("click", fadeOut,{once:true});
