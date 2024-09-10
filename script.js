@@ -44,7 +44,6 @@ function addBookToLibrary(event) {
     const inputValues = Array.from(inputs).map(input => input.value);
     const book = new Book(...inputValues);
     myLibrary.push(book);
-    console.log(myLibrary);
     event.preventDefault();
     dialog.close();
     bookInfo.reset();
