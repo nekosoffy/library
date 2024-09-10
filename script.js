@@ -5,7 +5,6 @@ const inputs = document.querySelectorAll("input, textarea");
 const cancelButton = document.querySelector("#cancel");
 const bookInfo = document.querySelector("form");
 const booksContainer = document.querySelector("#books-container");
-const deleteButtons = document.querySelectorAll(".delete-button");
 
 function Book(title, author, pages, notes) {
     this.title = title;
@@ -17,14 +16,13 @@ function Book(title, author, pages, notes) {
 function displayBooks() {
     booksContainer.replaceChildren();
 
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
         const card = document.createElement("div");
-        card.classList.add("book-card");
-
         const button = document.createElement("button");
+        
+        card.classList.add("book-card");
         button.classList.add("delete-button");
         button.setAttribute("type", "button");
-        const index = myLibrary.indexOf(book);
         button.setAttribute("data-index",`${index}`);
         button.textContent = "Remove book";
 
