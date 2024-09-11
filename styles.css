@@ -31,6 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "nobileregular", "sans-serif";
 }
 
 img, picture, video, canvas, svg {
@@ -67,7 +68,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-family: "nobileregular", "sans-serif";
     font-size: var(--h1-font-size);
     color: white;
     text-align: center;
@@ -141,7 +141,7 @@ button:hover {
     align-content: start;
     overflow-y: auto;
     box-shadow: 10px 10px 10px -2px #0e0e0e;
-    border: 1px solid #af9c84
+    border: 1px solid #af9c84;
 }
 
 #add {
