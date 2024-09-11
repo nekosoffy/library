@@ -7,12 +7,16 @@ const bookInfo = document.querySelector("form");
 const booksContainer = document.querySelector("#books-container");
 let allowEdit = "true";
 let index = null;
+let readStatus = null;
 
 function Book(title, author, pages, notes) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    
     this.status = "Not read";
+    
+    
     this.notes = notes;
 
     this.toggleStatus = function() {
@@ -104,6 +108,13 @@ function addBookToLibrary(event) {
         allowEdit = "true";
     } else {
         myLibrary.splice(index, 1, new Book(...inputValues));
+        const book = myLibrary[index];
+        for (key in book) {
+            if (key === "status") {
+                book[key] = readStatus;
+            }
+        }
+        
     }
     dialog.close();
     bookInfo.reset();
@@ -121,6 +132,11 @@ function handleButtonClick(event) {
     } else if (button.classList.contains("read-button")) {
         book.toggleStatus();
     } else if (button.classList.contains("edit-button")) {
+        for (key in book) {
+            if (key === "status") {
+                readStatus = book[key];
+            }
+        }
         book.editValues();
     } 
     displayBooks();
