@@ -47,7 +47,7 @@ function displayBooks() {
         card.appendChild(div);
 
         for (key in book) {
-            if (key !== "toggleStatus") {
+            if (key !== "toggleStatus" && book[key] !== "") {
             const p = document.createElement("p");
             const span = document.createElement("span");
             const div = document.createElement("div");
