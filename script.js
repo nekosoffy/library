@@ -5,6 +5,8 @@ const inputs = document.querySelectorAll("input, textarea");
 const cancelButton = document.querySelector("#cancel");
 const bookInfo = document.querySelector("form");
 const booksContainer = document.querySelector("#books-container");
+let allowEdit = "true";
+let index = null;
 
 function Book(title, author, pages, notes) {
     this.title = title;
@@ -21,12 +23,24 @@ function Book(title, author, pages, notes) {
         }
         displayBooks();
     }
+
+    this.editValues = function() {
+        const title = document.querySelector("#title");
+        const author = document.querySelector("#author");
+        const pages = document.querySelector("#pages");
+        const notes = document.querySelector("#notes");
+        title.value = this.title;
+        author.value = this.author;
+        pages.value = this.pages;
+        notes.value = this.notes;
+        dialog.showModal();
+    }
 }
 
 function displayBooks() {
     booksContainer.replaceChildren();
 
-    myLibrary.forEach((book, index) => {
+    myLibrary.forEach((book, i) => {
         const card = document.createElement("div");
         const div = document.createElement("div");
         card.classList.add("book-card");
@@ -34,20 +48,30 @@ function displayBooks() {
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.setAttribute("type", "button");
-        deleteButton.setAttribute("data-index", index);
+        deleteButton.setAttribute("data-index", i);
         deleteButton.textContent = "✖";
         div.appendChild(deleteButton);
 
         const readButton = document.createElement("button");
         readButton.classList.add("read-button");
         readButton.setAttribute("type", "button");
-        readButton.setAttribute("data-index", index);
+        readButton.setAttribute("data-index", i);
         readButton.textContent = "✔";
         div.appendChild(readButton);
         card.appendChild(div);
 
+        const editButton = document.createElement("button");
+        editButton.classList.add("edit-button");
+        editButton.setAttribute("type", "button");
+        editButton.setAttribute("data-index", i);
+        editButton.textContent = "✎";
+        div.appendChild(editButton);
+        card.appendChild(div);
+
         for (key in book) {
-            if (key !== "toggleStatus" && book[key] !== "") {
+            if (key !== "toggleStatus" && 
+                key !== "editValues" && 
+                book[key] !== "") {
                 const p = document.createElement("p");
                 const span = document.createElement("span");
                 const div = document.createElement("div");
@@ -75,7 +99,12 @@ function displayBooks() {
 function addBookToLibrary(event) {
     event.preventDefault();
     const inputValues = Array.from(inputs).map(input => input.value);
-    myLibrary.push(new Book(...inputValues));
+    if (allowEdit === "false") {
+        myLibrary.push(new Book(...inputValues));
+        allowEdit = "true";
+    } else {
+        myLibrary.splice(index, 1, new Book(...inputValues));
+    }
     dialog.close();
     bookInfo.reset();
     displayBooks();
@@ -83,18 +112,26 @@ function addBookToLibrary(event) {
 
 function handleButtonClick(event) {
     const button = event.target;
-    const index = button.dataset.index;
+    const dataIndex = button.dataset.index;
+    index = dataIndex;
+    console.log(index);
+    const book = myLibrary[index];
     if (button.classList.contains("delete-button")) {
         myLibrary.splice(index,1);
     } else if (button.classList.contains("read-button")) {
-        myLibrary[index].toggleStatus();
-    }
+        book.toggleStatus();
+    } else if (button.classList.contains("edit-button")) {
+        book.editValues();
+    } 
     displayBooks();
 }
 
 bookInfo.addEventListener("submit", addBookToLibrary);
 booksContainer.addEventListener("click", handleButtonClick);
-newBookButton.addEventListener("click", () => dialog.showModal());
+newBookButton.addEventListener("click", () => {
+    allowEdit = "false";
+    dialog.showModal()
+});
 
 cancelButton.addEventListener("click", () => {
     dialog.close();

@@ -222,6 +222,7 @@ label {
 }
 
 .read-button {
+    margin-right: 10px;
     color: rgb(78, 121, 78)
 }
 
@@ -274,5 +275,5 @@ label {
 }
 
 .not-read {
-    background-color: #c5611e
+    background-color: #c5611e;
 }
