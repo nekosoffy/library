@@ -20,11 +20,12 @@
     --h1-font-size: calc(1.8rem + 2.5vw);
     --label-font-size: calc(0.8rem + 0.3vw);
     --book-titles-font-size: calc(1rem + 0.1vw);
-
     --start-button-font-size: calc(1rem + 1.5vw);
+    --new-book-button-font-size: calc(1rem + 1vw);
+    --read-status-font-size: calc(1.2rem + 0.1vw);
+
     --button-color: #ccb69b;
     --button-font-color: #0e0e0e;
-    --new-book-button-font-size: calc(1rem + 1vw);
 }
 
 body {
@@ -257,4 +258,21 @@ label {
     line-height: 2;
     height: 5ch;
     overflow-y: auto;
+}
+
+.read, .not-read {
+    width: max-content;
+    padding: 5px 3px 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: var(--read-status-font-size);
+    line-height: 2;
+}
+
+.read {
+    background-color: rgb(42, 148, 42);
+}
+
+.not-read {
+    background-color: #c5611e
 }

@@ -48,17 +48,23 @@ function displayBooks() {
 
         for (key in book) {
             if (key !== "toggleStatus" && book[key] !== "") {
-            const p = document.createElement("p");
-            const span = document.createElement("span");
-            const div = document.createElement("div");
-            span.textContent = `${key}`
-            p.textContent = `${book[key]}`;
+                const p = document.createElement("p");
+                const span = document.createElement("span");
+                const div = document.createElement("div");
+                span.textContent = `${key}`
+                p.textContent = `${book[key]}`;
                 if (key === "notes") {
                     p.classList.add("notes");
-                }
-            div.appendChild(span);
-            div.appendChild(p);
-            card.appendChild(div);
+                } else if (key === "status") {
+                    if (book[key] === "Read") {
+                        p.classList.add("read");
+                    } else {
+                        p.classList.add("not-read");
+                    }
+                }   
+                div.appendChild(span);
+                div.appendChild(p);
+                card.appendChild(div);
             }
         };
 
