@@ -18,10 +18,14 @@
     font-size: 62.5%;
 
     --h1-font-size: calc(1.8rem + 2.5vw);
+    --label-font-size: calc(0.8rem + 0.3vw);
+
+
     --start-button-font-size: calc(1rem + 1.5vw);
     --button-color: #ccb69b;
     --button-font-color: #0e0e0e;
-    --new-book-button-font-size: calc(1rem + 1vw)
+    --new-book-button-font-size: calc(1rem + 1vw);
+    
 }
 
 body {
@@ -171,4 +175,40 @@ button:hover {
     border-left: 20px solid var(--button-font-color);
     border-radius: 10px 3px 3px 10px;
     box-shadow: 5px 5px 10px -2px #0e0e0e;
+}
+
+dialog {
+    align-self: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid gray;
+    background-color: #ebe6cd;
+}
+
+input, textarea {
+    display: block;
+}
+
+form > div {
+    margin-bottom: 20px;
+}
+
+form > div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+form button {
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px -2px #0e0e0e;
+    line-height: 2;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: var(--label-font-size);
+    font-weight: bold;
+    color: #52402b;
 }

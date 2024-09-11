@@ -17,16 +17,26 @@
         <div>
             <dialog>
                 <form method="dialog">
-                    <label for="title">Book title:</label>
-                    <input type="text" id="title" name="title" autocapitalize="on" maxlength="100" required/>
-                    <label for="author">Author name:</label>
-                    <input type="text" id="author" name="author" autocapitalize="words" maxlength="100" required/>
-                    <label for="pages">Number of pages:</label>
-                    <input type="number" id="pages" name="pages" required/>
-                    <label for="notes">Notes:</label>
-                    <textarea id="notes" name="notes"></textarea>
-                    <button type="submit" id="confirm" name="confirm">Confirm</button>
-                    <button type="button" id="cancel" name="cancel">Cancel</button>
+                    <div>
+                        <label for="title">Book title</label>
+                        <input type="text" id="title" name="title" autocapitalize="on" maxlength="100" required/>
+                    </div>
+                    <div>
+                        <label for="author">Author name</label>
+                        <input type="text" id="author" name="author" autocapitalize="words" maxlength="100" required/>
+                    </div>
+                    <div>
+                        <label for="pages">Number of pages</label>
+                        <input type="number" id="pages" name="pages" required/>
+                    </div>
+                    <div>
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" name="notes"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" id="confirm" name="confirm">Confirm</button>
+                        <button type="button" id="cancel" name="cancel">Cancel</button>
+                    </div>
                 </form>
             </dialog>
             <button type="button" id="add" name="add">Add a new book</button>
