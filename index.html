@@ -14,23 +14,24 @@
         <button type="button" id="start-button" name="start">Start my collection</button>
     </div>
     <div id="main-wrapper">
-        <dialog>
-            <form method="dialog">
-                <label for="title">Book title:</label>
-                <input type="text" id="title" name="title" autocapitalize="on" maxlength="100" required/>
-                <label for="author">Author name:</label>
-                <input type="text" id="author" name="author" autocapitalize="words" maxlength="100" required/>
-                <label for="pages">Number of pages:</label>
-                <input type="number" id="pages" name="pages" required/>
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="notes"></textarea>
-
-                <button type="submit" id="confirm" name="confirm">Confirm</button>
-                <button type="button" id="cancel" name="cancel">Cancel</button>
-            </form>
-        </dialog>
-        <button type="button" id="add" name="add">Add a new book</button>
-        <div id="books-container"></div>
+        <div>
+            <dialog>
+                <form method="dialog">
+                    <label for="title">Book title:</label>
+                    <input type="text" id="title" name="title" autocapitalize="on" maxlength="100" required/>
+                    <label for="author">Author name:</label>
+                    <input type="text" id="author" name="author" autocapitalize="words" maxlength="100" required/>
+                    <label for="pages">Number of pages:</label>
+                    <input type="number" id="pages" name="pages" required/>
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes"></textarea>
+                    <button type="submit" id="confirm" name="confirm">Confirm</button>
+                    <button type="button" id="cancel" name="cancel">Cancel</button>
+                </form>
+            </dialog>
+            <button type="button" id="add" name="add">Add a new book</button>
+            <div id="books-container"></div>
+        </div>
     </div>
 </body>
 </html>

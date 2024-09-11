@@ -124,10 +124,16 @@ button:hover {
     display: none;
 }
 
+#main-wrapper > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: center;
+    gap: max(10px,1vw);
+    height: 100%;
+}
+
 #books-container {
-    position: absolute;
-    top: max(70px,9vw);
-    left: 10vw;
     width: 80vw;
     height: 70vh;
     background-color: #583b34;
@@ -145,7 +151,6 @@ button:hover {
 }
 
 #add {
-    position: absolute;
     top: 5vw;
     left: 10vw;
     font-size: var(--new-book-button-font-size);
