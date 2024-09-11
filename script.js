@@ -26,6 +26,20 @@ function displayBooks() {
         const card = document.createElement("div");
         card.classList.add("book-card");
 
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.setAttribute("type", "button");
+        deleteButton.setAttribute("data-index", index);
+        deleteButton.textContent = "✖";
+        card.appendChild(deleteButton);
+
+        const readButton = document.createElement("button");
+        readButton.classList.add("read-button");
+        readButton.setAttribute("type", "button");
+        readButton.setAttribute("data-index", index);
+        readButton.textContent = "✓";
+        card.appendChild(readButton);
+
         for (key in book) {
             if (key !== "toggleStatus") {
             const p = document.createElement("p");
@@ -34,20 +48,6 @@ function displayBooks() {
             card.appendChild(p);
             }
         };
-
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-button");
-        deleteButton.setAttribute("type", "button");
-        deleteButton.setAttribute("data-index", index);
-        deleteButton.textContent = "Remove book";
-        card.appendChild(deleteButton);
-
-        const readButton = document.createElement("button");
-        readButton.classList.add("read-button");
-        readButton.setAttribute("type", "button");
-        readButton.setAttribute("data-index", index);
-        readButton.textContent = "Change read status";
-        card.appendChild(readButton);
 
         booksContainer.appendChild(card);
     });
