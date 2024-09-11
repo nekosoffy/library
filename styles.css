@@ -140,7 +140,7 @@ button:hover {
 #books-container {
     width: 80vw;
     height: 70vh;
-    background-color: #583b34;
+    background-color: #644d3c;
     border-radius: 10px;
     padding: 20px;
     display: grid;
@@ -151,7 +151,7 @@ button:hover {
     align-content: start;
     overflow-y: auto;
     box-shadow: 10px 10px 10px -2px #0e0e0e;
-    border: 1px solid #af9c84;
+    border: 2px solid #362e25;
 }
 
 #add {
