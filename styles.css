@@ -141,6 +141,7 @@ button:hover {
     align-content: start;
     overflow-y: auto;
     box-shadow: 10px 10px 10px -2px #0e0e0e;
+    border: 1px solid #af9c84
 }
 
 #add {
