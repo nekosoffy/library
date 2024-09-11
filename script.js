@@ -53,6 +53,9 @@ function displayBooks() {
             const div = document.createElement("div");
             span.textContent = `${key}`
             p.textContent = `${book[key]}`;
+                if (key === "notes") {
+                    p.classList.add("notes");
+                }
             div.appendChild(span);
             div.appendChild(p);
             card.appendChild(div);

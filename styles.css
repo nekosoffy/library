@@ -133,7 +133,7 @@ button:hover {
     align-items: flex-start;
     justify-items: center;
     gap: max(10px,1vw);
-    height: 100%;
+    height: 100%;line-height: 1.1;
 }
 
 #books-container {
@@ -168,8 +168,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 5px;
-    height: max(200px,27vh);
+    gap: 8px;
+    height: max(327px,15vw);
     overflow: auto;
     background-color: #a8845b;
     padding: max(7px,4%);
@@ -177,10 +177,6 @@ button:hover {
     border-left: 20px solid var(--button-font-color);
     border-radius: 10px 3px 3px 10px;
     box-shadow: 5px 5px 10px -2px #0e0e0e;
-}
-
-.book-card > div:first-of-type {
-    margin-bottom: 5px;
 }
 
 dialog {
@@ -251,5 +247,16 @@ label {
     text-transform: uppercase;
     color:#272836;
     font-size: var(--book-titles-font-size);
-    line-height: 0.2
+}
+
+.book-card p {
+    line-height: 1.1;
+}
+
+.notes {
+    line-height: 2;
+    height: 5ch;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: end;
 }
