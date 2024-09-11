@@ -169,7 +169,6 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     gap: 8px;
-    height: max(327px,15vw);
     overflow: auto;
     background-color: #a8845b;
     padding: max(7px,4%);
