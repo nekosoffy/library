@@ -19,13 +19,12 @@
 
     --h1-font-size: calc(1.8rem + 2.5vw);
     --label-font-size: calc(0.8rem + 0.3vw);
-
+    --book-titles-font-size: calc(1rem + 0.1vw);
 
     --start-button-font-size: calc(1rem + 1.5vw);
     --button-color: #ccb69b;
     --button-font-color: #0e0e0e;
     --new-book-button-font-size: calc(1rem + 1vw);
-    
 }
 
 body {
@@ -166,14 +165,22 @@ button:hover {
 }
 
 .book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
     height: max(200px,27vh);
     overflow: auto;
     background-color: #a8845b;
-    padding: max(7px,1%);
+    padding: max(7px,4%);
     border: 3px solid var(--button-font-color);
     border-left: 20px solid var(--button-font-color);
     border-radius: 10px 3px 3px 10px;
     box-shadow: 5px 5px 10px -2px #0e0e0e;
+}
+
+.book-card > div:first-of-type {
+    margin-bottom: 5px;
 }
 
 dialog {
@@ -213,7 +220,7 @@ label {
 }
 
 .delete-button {
-    margin: 5px 10px 10px 0;
+    margin-right: 10px;
     font-weight: bolder;
     color: rgb(129, 52, 52);
 }
@@ -237,4 +244,12 @@ label {
 
 .book-card button:hover {
     background-color: #c08e42;
+}
+
+.book-card span {
+    font-weight: bold;
+    text-transform: uppercase;
+    color:#272836;
+    font-size: var(--book-titles-font-size);
+    line-height: 0.2
 }

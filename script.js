@@ -10,13 +10,17 @@ function Book(title, author, pages, notes) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.notes = notes;
     this.status = "Not read";
+    this.notes = notes;
 
     this.toggleStatus = function() {
-        this.status = this.status === "Not read" ? "Read" : "Not read";
+        if (this.status === "Not read") {
+            this.status = "Read";
+        } else {
+            this.status = "Not read";
+        }
         displayBooks();
-    };
+    }
 }
 
 function displayBooks() {
@@ -24,6 +28,7 @@ function displayBooks() {
 
     myLibrary.forEach((book, index) => {
         const card = document.createElement("div");
+        const div = document.createElement("div");
         card.classList.add("book-card");
 
         const deleteButton = document.createElement("button");
@@ -31,21 +36,26 @@ function displayBooks() {
         deleteButton.setAttribute("type", "button");
         deleteButton.setAttribute("data-index", index);
         deleteButton.textContent = "✖";
-        card.appendChild(deleteButton);
+        div.appendChild(deleteButton);
 
         const readButton = document.createElement("button");
         readButton.classList.add("read-button");
         readButton.setAttribute("type", "button");
         readButton.setAttribute("data-index", index);
         readButton.textContent = "✔";
-        card.appendChild(readButton);
+        div.appendChild(readButton);
+        card.appendChild(div);
 
         for (key in book) {
             if (key !== "toggleStatus") {
             const p = document.createElement("p");
-            const capitalizedKey = key.at(0).toUpperCase() + key.slice(1);
-            p.textContent = `${capitalizedKey}: ${book[key]}`;
-            card.appendChild(p);
+            const span = document.createElement("span");
+            const div = document.createElement("div");
+            span.textContent = `${key}`
+            p.textContent = `${book[key]}`;
+            div.appendChild(span);
+            div.appendChild(p);
+            card.appendChild(div);
             }
         };
 
