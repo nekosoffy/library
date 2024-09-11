@@ -37,7 +37,7 @@ function displayBooks() {
         readButton.classList.add("read-button");
         readButton.setAttribute("type", "button");
         readButton.setAttribute("data-index", index);
-        readButton.textContent = "✓";
+        readButton.textContent = "✔";
         card.appendChild(readButton);
 
         for (key in book) {

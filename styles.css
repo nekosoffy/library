@@ -151,7 +151,6 @@ button:hover {
     align-content: start;
     overflow-y: auto;
     box-shadow: 10px 10px 10px -2px #0e0e0e;
-    border: 2px solid #362e25;
 }
 
 #add {
@@ -216,10 +215,26 @@ label {
 .delete-button {
     margin: 5px 10px 10px 0;
     font-weight: bolder;
+    color: rgb(129, 52, 52);
+}
+
+.read-button {
+    color: rgb(78, 121, 78)
 }
 
 .book-card button {
     border-radius: 5px;
-    box-shadow: 1px 2px 10px -2px #0e0e0e;
+    box-shadow: 2px 2px 5px -2px #0e0e0e;
     line-height: 1.5;
+    background-color: #e9ad52;
+}
+
+.book-card button:active {
+    background-color: #c08e42;
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+.book-card button:hover {
+    background-color: #c08e42;
 }
