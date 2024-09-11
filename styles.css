@@ -170,7 +170,7 @@ button:hover {
     justify-content: flex-start;
     gap: 8px;
     overflow: auto;
-    background-color: #a8845b;
+    background-color: #3a3a4e;
     padding: max(7px,4%);
     border: 3px solid var(--button-font-color);
     border-left: 20px solid var(--button-font-color);
@@ -244,18 +244,17 @@ label {
 .book-card span {
     font-weight: bold;
     text-transform: uppercase;
-    color:#272836;
+    color:#9498bd;
     font-size: var(--book-titles-font-size);
 }
 
 .book-card p {
     line-height: 1.1;
+    color: white;
 }
 
 .notes {
     line-height: 2;
     height: 5ch;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
-    scroll-snap-align: end;
 }
