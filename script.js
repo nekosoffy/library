@@ -125,7 +125,6 @@ function handleButtonClick(event) {
     const button = event.target;
     const dataIndex = button.dataset.index;
     index = dataIndex;
-    console.log(index);
     const book = myLibrary[index];
     if (button.classList.contains("delete-button")) {
         myLibrary.splice(index,1);
