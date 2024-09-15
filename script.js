@@ -5,21 +5,22 @@ const inputs = document.querySelectorAll("input, textarea");
 const cancelButton = document.querySelector("#cancel");
 const bookInfo = document.querySelector("form");
 const booksContainer = document.querySelector("#books-container");
-let allowEdit = "true";
-let index = null;
+let allowEdit = true;
+let currentIndex = null;
 let readStatus = null;
 
-function Book(title, author, pages, notes) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
+class Book {
+    constructor(title, author, pages, notes) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
     
-    this.status = "Not read";
+        this.status = "Not read";
     
+        this.notes = notes;
+    }
     
-    this.notes = notes;
-
-    this.toggleStatus = function() {
+    toggleStatus() {
         if (this.status === "Not read") {
             this.status = "Read";
         } else {
@@ -28,7 +29,7 @@ function Book(title, author, pages, notes) {
         displayBooks();
     }
 
-    this.editValues = function() {
+    editValues() {
         const title = document.querySelector("#title");
         const author = document.querySelector("#author");
         const pages = document.querySelector("#pages");
@@ -103,12 +104,12 @@ function displayBooks() {
 function addBookToLibrary(event) {
     event.preventDefault();
     const inputValues = Array.from(inputs).map(input => input.value);
-    if (allowEdit === "false") {
+    if (allowEdit === false) {
         myLibrary.push(new Book(...inputValues));
-        allowEdit = "true";
+        allowEdit = true;
     } else {
-        myLibrary.splice(index, 1, new Book(...inputValues));
-        const book = myLibrary[index];
+        myLibrary.splice(currentIndex, 1, new Book(...inputValues));
+        const book = myLibrary[currentIndex];
         for (key in book) {
             if (key === "status") {
                 book[key] = readStatus;
@@ -123,11 +124,10 @@ function addBookToLibrary(event) {
 
 function handleButtonClick(event) {
     const button = event.target;
-    const dataIndex = button.dataset.index;
-    index = dataIndex;
-    const book = myLibrary[index];
+    currentIndex = button.dataset.index;
+    const book = myLibrary[currentIndex];
     if (button.classList.contains("delete-button")) {
-        myLibrary.splice(index,1);
+        myLibrary.splice(currentIndex,1);
     } else if (button.classList.contains("read-button")) {
         book.toggleStatus();
     } else if (button.classList.contains("edit-button")) {
@@ -144,7 +144,7 @@ function handleButtonClick(event) {
 bookInfo.addEventListener("submit", addBookToLibrary);
 booksContainer.addEventListener("click", handleButtonClick);
 newBookButton.addEventListener("click", () => {
-    allowEdit = "false";
+    allowEdit = false;
     dialog.showModal()
 });
 
